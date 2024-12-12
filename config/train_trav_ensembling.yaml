@@ -1,0 +1,36 @@
+defaults:
+  - _self_
+  - override hydra/launcher: submitit_slurm
+
+batch_size: 256
+n_epochs: 6
+learning_rate: 0.0001
+data_path: "/media/jft/diskstation/labeling_trav_new/"
+test_data_path: "/media/jft/diskstation/labeling_trav_test/"
+hidden_dim: 512
+n_models: 10
+n_layers: 2
+num_workers: 0
+version: s
+dino: True
+one_hot: True
+balanced_sampling: False
+tiny_dataset: False
+eval_every_epoch: 1
+
+hydra:
+  launcher:
+      timeout_min: 720
+      cpus_per_task: 8
+      gpus_per_node: 1
+      tasks_per_node: 1
+      mem_gb: 160
+      nodes: 1
+      account: rrg-dpmeger
+  run:
+    dir: /media/jft/diskstation/results_trav_ensemble/${now:%Y.%m.%d}/${now:%H%M%S}
+    # dir: /scratch/jftrem/results_trav/${now:%Y.%m.%d}/${now:%H%M%S.%f}
+  sweep:
+    # dir: /localhdd/jft/results_trav/${now:%Y.%m.%d}/${now:%H%M%S}
+    dir: /scratch/jftrem/results_trav_ensemble/${now:%Y.%m.%d}/${now:%H%M%S.%f}
+    subdir: ${hydra.job.num}

@@ -1,0 +1,36 @@
+name: ros_env
+channels:
+- conda-forge
+- pyg
+- robostack-staging
+- pytorch
+- nvidia
+- xformers
+dependencies:
+- python=3.9
+- black
+- ros-noetic-desktop
+- ros-noetic-robot-localization
+- ros-noetic-tf-conversions
+- ros-noetic-geographic-msgs
+- matplotlib
+- scipy
+- numpy #=1.25
+- seaborn
+- pandas
+- plotly
+- tqdm
+- dash
+- hydra-core
+- hydra-submitit-launcher
+- pyproj
+- pytorch=2.4
+- torchvision=0.19  # Otherwise defaults to some old version
+- torchmetrics
+- xformers
+- pytorch-cuda=12.4
+- pyg
+- pip
+- tensorboard
+pip:
+  catkin_tools

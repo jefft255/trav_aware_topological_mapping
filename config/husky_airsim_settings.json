@@ -1,0 +1,168 @@
+{
+	"CameraDefaults": {
+		"CaptureSettings": [
+			{
+				"ImageType": 0,
+				"Width": 320,
+				"Height": 240,
+				"FOV_Degrees": 130,
+				"AutoExposureSpeed": 100,
+				"AutoExposureBias": 0,
+				"AutoExposureMaxBrightness": 0.64,
+				"AutoExposureMinBrightness": 0.03,
+				"MotionBlurAmount": 0,
+				"TargetGamma": 1.0,
+				"ProjectionMode": "",
+				"OrthoWidth": 5.12
+			}
+		],
+		"NoiseSettings": [
+			{
+				"Enabled": false,
+				"ImageType": 0,
+				"RandContrib": 0.2,
+				"RandSpeed": 100000.0,
+				"RandSize": 500.0,
+				"RandDensity": 2,
+				"HorzWaveContrib": 0.03,
+				"HorzWaveStrength": 0.08,
+				"HorzWaveVertSize": 1.0,
+				"HorzWaveScreenSize": 1.0,
+				"HorzNoiseLinesContrib": 1.0,
+				"HorzNoiseLinesDensityY": 0.01,
+				"HorzNoiseLinesDensityXY": 0.5,
+				"HorzDistortionContrib": 1.0,
+				"HorzDistortionStrength": 0.002
+			}
+		],
+		"X": 0,
+		"Y": 0,
+		"Z": 0,
+		"Pitch": 0,
+		"Roll": 0,
+		"Yaw": 0,
+		"UnrealEngine": {
+			"PixelFormatOverride": [
+				{
+					"ImageType": 0,
+					"PixelFormat": 0
+				}
+			]
+		}
+	},
+	"SeeDocsAt": "https://github.com/Microsoft/AirSim/blob/master/docs/settings.md",
+	"SimMode": "Car",
+	"CameraDirector": {
+		"FollowDistance": 0.15,
+		"RotationLag": true,
+		"RotationLagSpeed": 3.0,
+		"ExternalCameraLocation": {
+			"X": -2.00,
+			"Y": 0.0,
+			"Z": 0.0
+		},
+		"ExternalCameraRotation": {
+			"Pitch": 10.0,
+			"Roll": 0.0,
+			"Yaw": 0.0
+		},
+		"SpringArmLocation": {
+			"X": 0.0,
+			"Y": 0.0,
+			"Z": 0.15
+		},
+		"SpringArmRotation": {
+			"Pitch": -20.0,
+			"Roll": 0.0,
+			"Yaw": 0.0
+		}
+	},
+	"PawnPaths": {
+		"HuskyPawnPath": {
+			"PawnBP": "Class'/AirSim/MRLVehicles/Husky/BP_Husky.BP_Husky_C'"
+		}
+	},
+	"SettingsVersion": 1.2,
+	"Vehicles": {
+		"Husky": {
+			"VehicleType": "skidsteer",
+			"PawnPath": "HuskyPawnPath",
+			"AutoCreate": true,
+			"Cameras": {
+				"LeftCamera": {
+					"X": 0,
+					"Y": -0.2,
+					"Z": -0.3,
+					"Pitch": 0,
+					"Roll": 0,
+					"Yaw": -90,
+					"CaptureSettings": [
+						{
+							"ImageType": 0,
+							"Width": 320,
+							"Height": 240,
+							"FOV_Degrees": 130,
+							"AutoExposureSpeed": 100,
+							"AutoExposureBias": 0,
+							"AutoExposureMaxBrightness": 0.64,
+							"AutoExposureMinBrightness": 0.03,
+							"MotionBlurAmount": 0,
+							"TargetGamma": 1.0,
+							"ProjectionMode": "",
+							"OrthoWidth": 5.12
+						}
+					]
+				},
+				"FrontCamera": {
+					"X": 0.3,
+					"Y": 0,
+					"Z": -0.3,
+					"Pitch": 0,
+					"Roll": 0,
+					"Yaw": 0,
+					"CaptureSettings": [
+						{
+							"ImageType": 0,
+							"Width": 320,
+							"Height": 240,
+							"FOV_Degrees": 130,
+							"AutoExposureSpeed": 100,
+							"AutoExposureBias": 0,
+							"AutoExposureMaxBrightness": 0.64,
+							"AutoExposureMinBrightness": 0.03,
+							"MotionBlurAmount": 0,
+							"TargetGamma": 1.0,
+							"ProjectionMode": "",
+							"OrthoWidth": 5.12
+						}
+					]
+				},
+				"RightCamera": {
+					"X": 0,
+					"Y": 0.2,
+					"Z": -0.3,
+					"Pitch": 0,
+					"Roll": 0,
+					"Yaw": 90,
+					"CaptureSettings": [
+						{
+							"ImageType": 0,
+							"Width": 320,
+							"Height": 240,
+							"FOV_Degrees": 130,
+							"AutoExposureSpeed": 100,
+							"AutoExposureBias": 0,
+							"AutoExposureMaxBrightness": 0.64,
+							"AutoExposureMinBrightness": 0.03,
+							"MotionBlurAmount": 0,
+							"TargetGamma": 1.0,
+							"ProjectionMode": "",
+							"OrthoWidth": 5.12
+						}
+					]
+				}
+			}
+		}
+	},
+	"ViewMode": ""
+}

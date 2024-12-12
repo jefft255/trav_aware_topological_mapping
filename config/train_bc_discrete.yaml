@@ -1,0 +1,41 @@
+defaults:
+  - _self_
+  - override hydra/launcher: submitit_slurm
+
+batch_size: 32
+n_epochs: 50
+hist_size: 5
+only_front: False
+no_image: False
+version: s
+learning_rate: 0.0001
+#data_path: "../jftrem/bc_data"
+data_path: "/home/barbados/jft/bc_data"
+hidden_layers: 4
+hidden_dim: 1024
+num_workers: 0
+mirror_trajs: True
+tiny_dataset: False
+# number of linear and angular velocities to be considered
+linear_vel_dim: 4
+angular_vel_dim: 5
+
+hydra:
+  launcher:
+      timeout_min: 1440
+      cpus_per_task: 8
+      gpus_per_node: 1
+      tasks_per_node: 1
+      mem_gb: 160
+      nodes: 1
+      account: rrg-dpmeger
+  run:
+    # dir: /localhdd/jft/results_bc/${now:%Y.%m.%d}/${now:%H%M%S}
+    dir: results_bc/${now:%Y.%m.%d}/${now:%H%M%S.%f}
+  sweep:
+    # dir: /localhdd/jft/results_bc/${now:%Y.%m.%d}/${now:%H%M%S}
+    dir: results_bc/${now:%Y.%m.%d}/${now:%H%M%S.%f}
+    subdir: ${hydra.job.num}
+
+    
+    

@@ -1,0 +1,13 @@
+typing_extensions
+numpy
+pyyaml
+rospkg
+scipy
+plotly
+dash
+pandas
+opencv-python
+pyproj
+tqdm
+# need to install https://github.com/ros-geographic-info/unique_identifier
+# Build geodesy from source https://github.com/ros-geographic-info/geographic_info

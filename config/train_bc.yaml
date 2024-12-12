@@ -1,0 +1,102 @@
+defaults:
+  - _self_
+  - paths: raza_husky
+  - override hydra/launcher: submitit_slurm
+  # - override hydra/sweeper: nevergrad_bc
+
+batch_size: 64
+n_epochs: 26
+hist_size: 3
+only_front: False
+past_actions: True
+velocities: True
+version: s  # s, l, g for dino and 18, 34, 50, 101, 152 for resnet
+learning_rate: 0.0001
+hidden_layers: 4
+hidden_dim: 4096
+gelu: False
+residual: False
+pred_horizon: 3
+max_goal_time_sample: 15
+DINO: True
+
+run_sim: False
+n_simulations: 20
+
+timeout_epoch: 14000
+timeout_simulator: 900
+
+precompute_embeddings: False
+mirror_trajs: False
+dataset_proportion: 1.0
+
+distributed: False
+world_size: 1
+num_workers: 4
+
+hydra:
+  launcher:
+      timeout_min: 600
+      cpus_per_task: 4
+      gpus_per_node: 1
+      tasks_per_node: 1
+      mem_gb: 100
+      nodes: 1
+      account: rrg-dpmeger
+  run:
+    dir: ${paths.bc_run_dir}
+  sweep:
+    dir: ${paths.bc_run_dir}
+    subdir: ${hydra.job.num}
+
+  # sweeper:
+  #   _target_: hydra_plugins.hydra_nevergrad_sweeper.nevergrad_sweeper.NevergradSweeper
+  #   optim:
+  #     optimizer: NGOpt
+  #     budget: 100
+  #     num_workers: 10
+  #     noisy: True
+  #     maximize: False
+  #     seed: null
+  #     max_failure_rate: 0.0
+  #   parametrization:
+  #     max_goal_time_sample:
+  #       lower: 21
+  #       upper: 60
+  #       integer: True
+  #     past_actions:
+  #       - True
+  #       - False
+  #     velocities:
+  #       - True
+  #       - False
+  #     version:
+  #       - 18
+  #       - 34
+  #       - 50
+  #       - 101
+  #     hist_size:
+  #       lower: 2
+  #       upper: 7
+  #       integer: True
+  #     hidden_layers:
+  #       lower: 2
+  #       upper: 8
+  #       integer: True
+  #     hidden_dim:
+  #       lower: 512
+  #       upper: 4096
+  #       integer: True
+  #     gelu:
+  #       - True
+  #       - False
+  #     residual:
+  #       - True
+  #       - False
+  #     pred_horizon:
+  #       lower: 1
+  #       upper: 20
+  #       integer: True
+  #     mirror_trajs:
+  #       - True
+  #       - False

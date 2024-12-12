@@ -1,0 +1,38 @@
+_target_: hydra_plugins.hydra_nevergrad_sweeper.nevergrad_sweeper.NevergradSweeper
+optim:
+  optimizer: NGOpt
+  budget: 100
+  num_workers: 10
+  noisy: True
+  maximize: True
+  seed: null
+  max_failure_rate: 0.0
+parametrization:
+  past_actions:
+    - True
+    - False
+  velocities:
+    - True
+    - False
+  hist_size:
+    lower: 2
+    upper: 7
+    integer: True
+  hidden_layers:
+    lower: 2
+    upper: 16
+    integer: True
+  hidden_dim:
+    lower: 512
+    upper: 8192
+    integer: True
+  gelu:
+    - True
+    - False
+  residual:
+    - True
+    - False
+  pred_horizon:
+    lower: 1
+    upper: 5
+    integer: True

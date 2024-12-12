@@ -1,0 +1,7 @@
+<launch>
+  <node pkg="topological_mapping" args="/media/jft/diskstation/results_trav/models_for_sept11/model.pth" type="traversability_analysis_node.py" name="traversability_analysis" />
+  <node pkg="topological_mapping" args="/media/jft/diskstation/results_bc/models_for_sept11/" type="bc_node.py" name="behaviour_cloning" clear_params="true" />
+  <include file="$(find husky_localization)/launch/husky_localization.launch" />
+  <!-- <include file="$(find husky_localization)/launch/husky_dead_reckoning.launch" /> -->
+  <node pkg="topological_mapping" type="mapping_node.py" name="topological_mapping"/>
+</launch>

@@ -1,0 +1,4 @@
+bc_run_dir: /scratch/jftrem/results_bc/${now:%Y.%m.%d}/${now:%H%M%S.%f}
+bc_data_dir: /scratch/jftrem/bc_data_new
+bc_val_data_dir: /scratch/jftrem/bc_data_test
+ 

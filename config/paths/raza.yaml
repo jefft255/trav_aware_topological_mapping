@@ -1,0 +1,2 @@
+bc_run_dir: /localhdd/jft/results_bc/${now:%Y.%m.%d}/${now:%H%M%S}
+bc_data_dir: /media/jft/diskstation/bc_data_sim

@@ -1,0 +1,36 @@
+<launch>
+  <machine name="jetson" password="clearpath" address="192.168.131.2" default="false" env-loader="/home/administrator/catkin_ws/devel/env.sh" />
+  <arg name="venv_jetson" value="/home/administrator/topologial_mapping/bin/python" />
+  <arg name="venv" value="/home/administrator/venv_topological_mapping/bin/python" />
+  <arg name="point_and_shoot" default="false"/>
+  <node
+    machine="jetson"
+    pkg="topological_mapping"
+    args="/home/administrator/model.pth"
+    type="traversability_analysis_node.py"
+    name="traversability_analysis"
+    clear_params="true"
+    launch-prefix="$(arg venv_jetson)"/>
+
+  <group if="$(eval arg('point_and_shoot') == false)">
+    <node
+      machine="jetson"
+      pkg="topological_mapping"
+      args="/home/administrator/"
+      type="bc_node.py"
+      name="bc"
+      clear_params="true"
+      launch-prefix="$(arg venv_jetson)"/>
+  </group>
+  <group if="$(eval arg('point_and_shoot') == true)">
+    <node
+      pkg="topological_mapping"
+      type="point_and_shoot_node.py"
+      name="bc"
+      clear_params="true"
+      launch-prefix="$(arg venv)"/>
+  </group>
+
+  <include file="$(find husky_localization)/launch/husky_localization.launch" /> 
+  <node pkg="topological_mapping" type="mapping_node.py" name="topological_mapping" clear_params="true" launch-prefix="$(arg venv)"/>
+</launch>
